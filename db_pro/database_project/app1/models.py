@@ -15,5 +15,9 @@ class Teacher(models.Model):
     subject = models.CharField(max_length=100)
 
 class Employee(models.Model):
-    name = models.CharField(max_length=100)
+    ename = models.CharField(max_length=100)
+    job = models.CharField(max_length=100)
+    salary = models.IntegerField()
+    deptno = models.IntegerField()
+
     
