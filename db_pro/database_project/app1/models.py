@@ -13,3 +13,7 @@ class Teacher(models.Model):
     age = models.IntegerField()
     gender = models.CharField(max_length=10)
     subject = models.CharField(max_length=100)
+
+class Employee(models.Model):
+    name = models.CharField(max_length=100)
+    
