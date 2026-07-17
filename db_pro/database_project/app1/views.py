@@ -24,8 +24,8 @@ def one_employee(request,id):
     }
     return render(request,'one_employee.html', context)
 
-def multiple_students(request,n):
+def multiple_students(request,std):
     context = {
-        "student" : Student.objects.filter(std=n)
+        "students" : Student.objects.filter(std=std)
     }
     return render(request,'mul_students.html', context)

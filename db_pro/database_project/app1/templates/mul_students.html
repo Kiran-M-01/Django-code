@@ -21,7 +21,7 @@
             <th>GENDER</th>
             <th>STD</th>
         </tr>
-
+        {% for student in students%}
         <tr>
             <td>{{student.id}}</td>
             <td>{{student.name}}</td>
@@ -29,7 +29,7 @@
             <td>{{student.gender}}</td>
             <td>{{student.std}}</td>
         </tr>
-
+        {% endfor %}
     </table>
 </body>
 </html>
