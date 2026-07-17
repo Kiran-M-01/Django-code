@@ -12,8 +12,8 @@ def all_students(request):
 
 
 # FOR EMPLOYEE TABLE
-def all_employees(request):
+def all_employees(request,n):
     context = {
-        "Employees" : Employee.objects.all()
+        "employee" : Employee.objects.get(id=n)
     }
     return render(request,'all_employees.html', context)
