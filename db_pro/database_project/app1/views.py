@@ -23,3 +23,9 @@ def one_employee(request,id):
         "employee" : Employee.objects.get(id=id)
     }
     return render(request,'one_employee.html', context)
+
+def multiple_students(request,n):
+    context = {
+        "student" : Student.objects.filter(std=n)
+    }
+    return render(request,'mul_students.html', context)
