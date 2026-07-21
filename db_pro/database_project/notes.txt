@@ -1,0 +1,64 @@
+(venv) PS C:\Users\Admin\OneDrive\Desktop\django\db_pro\database_project> py manage.py makemigrations
+No changes detected
+(venv) PS C:\Users\Admin\OneDrive\Desktop\django\db_pro\database_project> py manage.py shell         
+15 objects imported automatically (use -v 2 for details).
+
+Ctrl click to launch VS Code Native REPL
+Python 3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> 
+ *  History restored 
+
+PS C:\Users\Admin\OneDrive\Desktop\django\db_pro> (Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned) ; (& c:\Users\Admin\OneDrive\Desktop\django\db_pro\venv\Scripts\Activate.ps1)
+(venv) PS C:\Users\Admin\OneDrive\Desktop\django\db_pro> git add .                                                                 
+(venv) PS C:\Users\Admin\OneDrive\Desktop\django\db_pro> git commit -m "crud operatons"                                            
+[main 2c228e7] crud operatons                                         
+ 18 files changed, 48 insertions(+)
+ create mode 100644 db_pro/database_project/app2/__init__.py
+ create mode 100644 db_pro/database_project/app2/__pycache__/__init__.cpython-313.pyc
+ create mode 100644 db_pro/database_project/app2/__pycache__/admin.cpython-313.pyc
+ create mode 100644 db_pro/database_project/app2/__pycache__/apps.cpython-313.pyc
+ create mode 100644 db_pro/database_project/app2/__pycache__/models.cpython-313.pyc
+ create mode 100644 db_pro/database_project/app2/admin.py
+ create mode 100644 db_pro/database_project/app2/apps.py
+ create mode 100644 db_pro/database_project/app2/migrations/0001_initial.py
+ create mode 100644 db_pro/database_project/app2/migrations/__init__.py
+ create mode 100644 db_pro/database_project/app2/migrations/__pycache__/0001_initial.cpython-313.pyc
+ create mode 100644 db_pro/database_project/app2/migrations/__pycache__/__init__.cpython-313.pyc
+ create mode 100644 db_pro/database_project/app2/models.py
+ create mode 100644 db_pro/database_project/app2/tests.py
+ create mode 100644 db_pro/database_project/app2/views.py
+ create mode 100644 db_pro/database_project/notes.txt
+(venv) PS C:\Users\Admin\OneDrive\Desktop\django\db_pro> git push                                                                  
+Counting objects: 100% (31/31), done.
+Delta compression using up to 4 threads
+Total 25 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (4/4), completed with 3 local objects.
+To https://github.com/Kiran-M-01/Django-code.git
+   a3d5d81..2c228e7  main -> main
+
+
+(venv) PS C:\Users\Admin\OneDrive\Desktop\django\db_pro\database_project> py manage.py shell 
+
+>>> from django.db.models import Max,Min,Sum,Count,Avg
+>>> qs = Employee.objects.all()
+>>> for i in qs:
+...     print(i.id,i.ename,i.job,i.salary,i.deptno)
+... 
+1 Robb analyst 60000 20
+2 Jon manager 80000 10
+3 Bran clerk 40000 30
+4 Rickon salesman 30000 40
+
+>>> qs.aggregate(Max('salary')) 
+{'salary__max': 80000}
+>>> qs.aggregate(min = Min('salary'))
+{'min': 30000}
+>>> qs.aggregate(avg = Avg('salary'))
+{'avg': 52500.0}
+>>> qs.aggregate(sum = Sum('salary'))
+{'sum': 210000}
+>>> qs.aggregate(count = Count('salary'))
+{'count': 4}
+

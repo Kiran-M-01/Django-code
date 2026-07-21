@@ -7,3 +7,4 @@ class patient(models.Model):
     desease = models.CharField(max_length=100)
     bill = models.IntegerField()
     
+
