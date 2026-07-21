@@ -62,3 +62,13 @@ To https://github.com/Kiran-M-01/Django-code.git
 >>> qs.aggregate(count = Count('salary'))
 {'count': 4}
 
+
+# CREATNG ADMIN/SUPERUSER
+pymanage.py createsuperuser
+-  enter usrname/adminname,password,email
+
+#TO PERFORM CRUD/OTHER OPRATION USING ADMIN
+from .models import Employee
+
+# Register your models here.
+admin.site.register(Employee)
