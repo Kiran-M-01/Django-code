@@ -96,3 +96,30 @@ Jon     manager 80000   10
 ...     print(i.ename,i.job,i.salary,i.deptno,sep='\t')
 ... 
 Jon     manager 80000   10
+
+
+
+
+
+>>> from django.db.models import Q
+>>> qs = Employee.objects.filter( Q(deptno = 10) & Q( salary__lt=50000))          
+>>> for i in qs:
+...     print(i.ename,i.job,i.salary,i.deptno,sep='\t')
+... 
+>>> 
+>>> qs = Employee.objects.filter( Q(deptno = 10) & Q( salary__gt=50000)) 
+>>> for i in qs:
+...     print(i.ename,i.job,i.salary,i.deptno,sep='\t')
+... 
+Jon     manager 80000   10
+Ned     President       100000  10
+Arya    developer       75000   10
+Arya    developer       75000   10
+>>> qs = Employee.objects.filter( Q(deptno = 20) | Q( job='Chief Security Officer')) 
+>>> for i in qs:
+...     print(i.ename,i.job,i.salary,i.deptno,sep='\t')
+... 
+Robb    analyst 60000   20
+Sansa   HR      55000   20
+Arthur Dayne    Chief Security Officer  140000  40
+>>> 
