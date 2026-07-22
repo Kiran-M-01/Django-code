@@ -72,3 +72,27 @@ from .models import Employee
 
 # Register your models here.
 admin.site.register(Employee)
+
+
+
+
+>>> qs = Employee.objects.filter(ename__exact='Jon')
+>>> for i in qs:
+...     print(i.ename,i.job,i.salary,i.deptno,sep='\t')
+... 
+Jon     manager 80000   10
+>>> qs = Employee.objects.filter(ename__exact='Jo') 
+>>> for i in qs:
+...     print(i.ename,i.job,i.salary,i.deptno,sep='\t')
+... 
+>>> 
+>>> qs = Employee.objects.filter(ename__exact='jon') 
+>>> for i in qs:
+...     print(i.ename,i.job,i.salary,i.deptno,sep='\t')
+... 
+>>> 
+>>> qs = Employee.objects.filter(ename__iexact='jon')
+>>> for i in qs:
+...     print(i.ename,i.job,i.salary,i.deptno,sep='\t')
+... 
+Jon     manager 80000   10
